@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "BuscarPorId";
+}
+
+<h1>BuscarPorId</h1>
+
+<form asp-action="MostrarGrupo">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Escriba la letra del grupo</label>
+                <input class="form-control" name="grupo" />
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Buscar" class="btn btn-primary" />
+            </div>
+</form>
+
+
+@ViewBag.Mensaje

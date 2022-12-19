@@ -1,0 +1,147 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MundialProg3</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MundialProg3</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+
+
+                        @*TODOS LOS USUARIOS*@
+                        @if (Context.Session.GetString("Rol") == null)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="AgregarUsuario">Registro de Usuario</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="InicioSesion">Inicio de sesión</a>
+                            </li> 
+                        }
+                          
+                        
+                        @*ADMIN*@
+                        @if (Context.Session.GetString("Rol") != null && Context.Session.GetString("Rol").Equals("Admin"))
+                        {
+                            
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Pais" asp-action="AgregarPais">AltaPais</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Pais" asp-action="ListarPaises">ListarPaises</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Pais" asp-action="BuscarPorAlfa3">BuscarPorCodAlfa</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Pais" asp-action="BuscarPaisesPorRegion">Obtener países por región</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Pais" asp-action="BuscarPaisPorId">Buscar país por id</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="SeleccionWebApi" asp-action="CrearSeleccion">Añadir selección</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="SeleccionWebApi" asp-action="ListarSelecciones">Ver selecciones</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="SeleccionWebApi" asp-action="BuscarPorId">Buscar selección por id</a>
+                            </li>
+                          
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="PartidoWebApi" asp-action="BuscarPartidos">Filtrar partidos</a>
+                            </li> 
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="PartidoWebApi" asp-action="BuscarTablaGrupo">Ver tabla de grupo</a>
+                            </li> 
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="CerrarSesion">Cerrar sesión</a>
+                            </li>
+                          @*  <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="PartidoWebApi" asp-action="ListarPartidos">Ver todos los partidos</a>
+                            </li>*@
+
+                        }
+
+                        @*APOSTADOR*@
+                        @if (Context.Session.GetString("Rol") != null && Context.Session.GetString("Rol").Equals("Apostador"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="PartidoWebApi" asp-action="BuscarPartidos">Filtrar partidos</a>
+                            </li> 
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="PartidoWebApi" asp-action="BuscarTablaGrupo">Ver tabla de grupo</a>
+                            </li> 
+                             <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="CerrarSesion">Cerrar sesión</a>
+                            </li>
+                        }
+
+                        @*INVITADO*@
+                        @if (Context.Session.GetString("Rol") != null && Context.Session.GetString("Rol").Equals("Invitado"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="SeleccionWebApi" asp-action="ListarSelecciones">Ver selecciones</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="SeleccionWebApi" asp-action="BuscarPorId">Buscar selección por id</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="CerrarSesion">Cerrar sesión</a>
+                            </li>
+                        }
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - MundialProg3 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+@using Microsoft.AspNetCore.Http

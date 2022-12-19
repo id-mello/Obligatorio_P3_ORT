@@ -1,0 +1,51 @@
+﻿@using DTOS;
+
+@{
+    ViewData["Title"] = "MostrarGrupo";
+}
+
+<h1>MostrarGrupo</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Seleccion
+            </th>
+            <th>
+               Bandera
+            </th>
+            <th>
+                Goles A
+            </th>
+            <th>
+                Goles C
+            </th>
+            <th>
+                Puntos
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (SeleccionGrupoDTO item in Model)
+        {
+            <tr>
+                <td>
+                    @item.namePais
+                </td>
+                <td>
+                    <img src="~/Imagenes/@item.bandera" />
+                </td>
+                <td>
+                    @item.golesA
+                </td>
+                <td>
+                    @item.golesC
+                </td>
+                <td>
+                    @item.puntos
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

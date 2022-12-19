@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewData["Title"] = "BuscarPorId";
+}
+
+<h1>BuscarPorId</h1>
+
+<form asp-action="DatosPartidosPorIso">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label class="control-label">Escriba el iso</label>
+        <input class="form-control" name="iso" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Buscar" class="btn btn-primary" />
+    </div>
+    <br />
+</form>
+<form asp-action="DatosPartidosPorPais">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label class="control-label">Escriba el Pais</label>
+        <input class="form-control" name="nombrePais" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Buscar" class="btn btn-primary" />
+    </div>
+
+
+</form>
+<form asp-action="DatosPartidosPorGrupo">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label class="control-label">Escriba el Grupo</label>
+        <input class="form-control" name="grupo" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Buscar" class="btn btn-primary" />
+    </div>
+    <br />
+
+</form>
+<form asp-action="DatosPartidosPorFecha">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label class="control-label">Escriba la fecha desde</label>
+        <input class="form-control" name="desde" />
+        <label class="control-label">Escriba la fecha hasta</label>
+        <input class="form-control" name="hasta" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Buscar" class="btn btn-primary" />
+    </div>
+
+
+</form>
+
+@ViewBag.Error 

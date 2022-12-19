@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "BuscarPorAlfa3";
+}
+
+<h1>BuscarPorAlfa3</h1>
+
+<form asp-action="BuscarPorIsoAlfa3">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Escriba el código Iso Alfa 3</label>
+                <input class="form-control" name="codAlfa3" />
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Buscar" class="btn btn-primary" />
+            </div>
+</form>
+
+
+@ViewBag.Error 

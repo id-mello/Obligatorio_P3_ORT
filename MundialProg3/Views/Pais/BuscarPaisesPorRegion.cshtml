@@ -1,0 +1,32 @@
+﻿@model  MundialProg3.Models.ViewModelPaises
+
+@{
+    ViewData["Title"] = "BuscarPaisesPorRegion";
+}
+
+<h1>BuscarPaisesPorRegion</h1>
+
+<div>
+    <h4>Region</h4>
+    <hr />
+    <form asp-action="BuscarPaisesPorRegion" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="TodasLasRegiones" class="control-label"></label>
+                <select id="IdRegion" name="IdRegion" multiple>
+                    @foreach (var a in Model.TodasLasRegiones)
+                    {
+                        <option value="@a.Id">@a.Nombre</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Buscar" class="btn btn-primary" />
+            </div>
+        </form>
+</div>
+
+
+@ViewBag.Error 

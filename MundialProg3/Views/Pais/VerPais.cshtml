@@ -1,0 +1,64 @@
+﻿@model LogicaDeNegocio.EntidadesNegocio.Pais
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h1>View</h1>
+
+<div>
+    <h4>Pais</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IsoAlfa3)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IsoAlfa3)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PbiPerCapita)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PbiPerCapita)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Poblacion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Poblacion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Imagen)
+        </dt>
+        <dd class = "col-sm-10">
+            <img src="~/Imagenes/@Model.Imagen" />
+        </dd>
+          <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Region)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Region.Nombre)
+        </dd>
+    </dl>
+</div>
+
+
+@ViewBag.Error 
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

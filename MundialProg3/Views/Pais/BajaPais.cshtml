@@ -1,0 +1,63 @@
+﻿@model LogicaDeNegocio.EntidadesNegocio.Pais
+
+@{
+    ViewData["Title"] = "BajaPais";
+}
+
+<h1>BajaPais</h1>
+
+<h3>Está seguro que desea eliminar el país?</h3>
+<div>
+    <h4>Pais</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IsoAlfa3)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IsoAlfa3)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PbiPerCapita)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PbiPerCapita)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Poblacion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Poblacion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Imagen)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Imagen)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Region)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Region)
+        </dd>
+    </dl>
+    
+    <form asp-action="BajaPais">
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+    </form>
+    
+    @ViewBag.Error 
+</div>

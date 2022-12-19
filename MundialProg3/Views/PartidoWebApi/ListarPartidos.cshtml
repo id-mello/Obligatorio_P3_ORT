@@ -1,0 +1,45 @@
+﻿@model IEnumerable<LogicaDeNegocio.EntidadesNegocio.PartidoDeGrupo>
+
+@{
+    ViewData["Title"] = "ListarPartidos";
+}
+
+<h1>ListarPartidos</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaHora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seleccion[0].Pais.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seleccion[1].Pais.Nombre)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaHora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Seleccion[0].Pais.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Seleccion[1].Pais.Nombre)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

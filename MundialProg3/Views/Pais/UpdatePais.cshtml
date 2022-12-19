@@ -1,0 +1,66 @@
+﻿@model MundialProg3.Models.ViewModelPaises
+
+
+@{
+    ViewData["Title"] = "UpdatePais";
+}
+
+<h1>UpdatePais</h1>
+
+<h4>Pais</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UpdatePais" enctype="multipart/form-data">
+             <input hidden asp-for="IdPais" class="form-control" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre"  value="@Model.Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsoAlfa3" class="control-label"></label>
+                <input asp-for="IsoAlfa3" value="@Model.IsoAlfa3"  class="form-control" />
+                <span asp-validation-for="IsoAlfa3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PbiPerCapita" class="control-label"></label>
+                <input asp-for="PbiPerCapita" value="@Model.PbiPerCapita" class="form-control" />
+                <span asp-validation-for="PbiPerCapita" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Poblacion" class="control-label"></label>
+                <input asp-for="Poblacion" value="@Model.Poblacion" class="form-control" />
+                <span asp-validation-for="Poblacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImagenBandera" class="control-label"></label>
+                <input asp-for="ImagenBandera" value="@Model.ImagenBandera" class="form-control" />
+                <span asp-validation-for="ImagenBandera" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TodasLasRegiones" class="control-label"></label>
+                <select id="IdRegion" name="IdRegion">
+                    @foreach (var a in Model.TodasLasRegiones)
+                    {
+                        @if (@a.Id == @Model.IdRegion)
+                        {
+                            <option selected value="@a.Id">@a.Nombre</option>      
+                            
+                        }else
+                        {
+                            <option value="@a.Id">@a.Nombre</option>      
+                        }
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@ViewBag.Error 
